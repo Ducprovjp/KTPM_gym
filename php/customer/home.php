@@ -5,19 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width= device-width,initial-scale=1.0">
   <script src="https://kit.fontawesome.com/1147679ae7.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <?php
-  $sdt = $_GET['user'];
-  require_once '../connect.php';
-  $view_sql = "SELECT * FROM hoivien WHERE sdt = '$sdt'";
-  $result = mysqli_query($conn, $view_sql);
-  $row = mysqli_fetch_assoc($result);
-  ?>
+
+  <?php $sdt = $_GET['user']; ?>
+
   <header>
     <div>
       <img style="width: 100%;" src="../../images/logo.png">
@@ -36,14 +33,11 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
-    <h1>Thông tin người dùng</h1>
-    <p><strong>Họ tên:</strong> <?php echo $row['hoten']; ?></p>
-    <p><strong>Ngày sinh:</strong> <?php echo $row['ngaysinh']; ?></p>
-    <p><strong>Số điện thoại:</strong> <?php echo $sdt; ?></p>
-    <p><strong>Nghề nghiệp:</strong> <?php echo $row['nghenghiep']; ?></p>
-    <p><strong>Địa chỉ:</strong> <?php echo $row['diachi']; ?></p>
-  </div>
+
+
+
+
+
 </body>
 
 </html>
