@@ -18,7 +18,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><a href="../home.html">Home</a></li>
+        <li><a href="../../html/admin/home.html">Home</a></li>
         <li><a href="../../html/admin/quanLyNhanVien.html">Quản lý nhân viên</a></li>
         <li><a href="../../html/admin/quanLyPhongTap.html">Quản lý phòng tập</a></li>
         <li><a href="../../html/admin/quanLyTrangThietBi.html">Quản lý trang thiết bị</a></li>
@@ -45,7 +45,7 @@
     </div>
   </nav>
 
-  <div class="container-body">
+  <div class="container">
     <h1>Đăng ký chưa xác nhận </h1>
     <table class="table table-striped">
       <thead class="thead-style">
@@ -53,6 +53,7 @@
           <th>Họ tên</th>
           <th>Gói tập</th>
           <th>Ngày bắt đầu</th>
+          <th>Ngày kết thúc</th>
           <th>Giá</th>
           <th>Trạng thái</th>
           <th>Thao tác</th>
@@ -90,7 +91,8 @@
               <td><?php echo $r2['hoten'] ?></td>
               <td><?php echo $r3['tengoitap'] ?></td>
               <td><?php echo $r1['ngaybatdau'] ?></td>
-              <td><?php echo $r3['gia'] ?></td>
+              <td><?php echo $r1['ngayketthuc'] ?></td>
+              <td><?php echo $r1['gia'] ?></td>
               <td><?php echo $r1['trangthai'] ?></td>
               <td><a href="editDangKy.php?sid=<?php echo $r1['id'] ?>" class="btn btn-info">OK</a>
                 <a onclick="return confirm('Bạn có muốn xóa đăng ký này không?')" href="deleteDangKy.php?sid=<?php echo $r1['id'] ?>" class="btn btn-danger">Xóa</a>
@@ -108,7 +110,7 @@
   </div>
 
 
-  <div class="container">
+  <div class="container-body">
     <h1>Đăng ký đã xác nhận </h1>
     <table class="table table-striped">
       <thead class="thead-style">
@@ -116,6 +118,7 @@
           <th>Họ tên</th>
           <th>Gói tập</th>
           <th>Ngày bắt đầu</th>
+          <th>Ngày kết thúc</th>
           <th>Giá</th>
           <th>Trạng thái</th>
           <th>Thao tác</th>
@@ -153,9 +156,10 @@
               <td><?php echo $r2['hoten'] ?></td>
               <td><?php echo $r3['tengoitap'] ?></td>
               <td><?php echo $r1['ngaybatdau'] ?></td>
-              <td><?php echo $r3['gia'] ?></td>
+              <td><?php echo $r1['ngayketthuc'] ?></td>
+              <td><?php echo $r1['gia'] ?></td>
               <td><?php echo $r1['trangthai'] ?></td>
-              <td>
+              <td><a href="editDangKy.php?sid=<?php echo $r1['id'] ?>" class="btn btn-info">OK</a>
                 <a onclick="return confirm('Bạn có muốn xóa đăng ký này không?')" href="deleteDangKy.php?sid=<?php echo $r1['id'] ?>" class="btn btn-danger">Xóa</a>
               </td>
             </tr>

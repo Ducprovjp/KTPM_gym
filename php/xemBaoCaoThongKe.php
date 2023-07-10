@@ -31,10 +31,6 @@
             </ul>
         </div>
     </nav>
-
-
-
-
     <div class="container-body">
         <h1>Báo cáo </h1>
         <table class="table table-striped">

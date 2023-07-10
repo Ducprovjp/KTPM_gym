@@ -18,8 +18,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><a href="../../html/staff/home.html">Home</a></li>
-
+        <li><a href="../home.html">Home</a></li>
         <li><a href="../../html/staff/quanLyPhongTap.html">Quản lý phòng tập</a></li>
         <li><a href="../../html/staff/quanLyTrangThietBi.html">Quản lý trang thiết bị</a></li>
         <li><a href="../../html/staff/quanLyGoiTap.html">Quản lý gói tập</a></li>
@@ -36,24 +35,26 @@
     <div class="container-fluid">
       <ul class="nav navbar-nav">
         <li><a href="../../html/staff/quanLyHoiVien/addHoiVien.html">Thêm hội viên</a></li>
-        <li><a href="viewHoiVienStaff.php">Xem danh sách hội viên </a></li>
+        <li class="active"><a href="viewHoiVienStaff.php">Xem danh sách hội viên </a></li>
         <li><a href="../../html/staff/quanLyHoiVien/searchHoiVien.html">Tìm kiếm hội viên</a></li>
-        <li class="active"><a href="viewDangKyStaff.php">Duyệt đăng ký gói tập</a></li>
+        <li><a href="viewDangKyStaff.php">Duyệt đăng ký gói tập</a></li>
 
       </ul>
     </div>
   </nav>
 
   <div class="container-body">
-    <h1>Đăng ký chưa xác nhận </h1>
+    <h1>Danh sách hội viên </h1>
     <table class="table table-striped">
       <thead class="thead-style">
         <tr>
-          <th>Họ tên</th>
-          <th>Gói tập</th>
-          <th>Ngày bắt đầu</th>
-          <th>Giá</th>
-          <th>Trạng thái</th>
+          <th>Họ và tên</th>
+          <th>Ngày sinh</th>
+          <th>Số điện thoại</th>
+          <th>Địa chỉ</th>
+          <th>Nghề nghiệp</th>
+          <th>Mã vân tay</th>
+          <th>Loại thành viên</th>
           <th>Thao tác</th>
         </tr>
       </thead>
@@ -65,101 +66,26 @@
         require_once '../connect.php';
 
 
-        $view_dangky = "SELECT * FROM dangkygoitap";
+        $view_sql = "SELECT * FROM hoivien";
 
-        $result1 = mysqli_query($conn, $view_dangky);
+        $result = mysqli_query($conn, $view_sql);
 
-        while ($r1 = mysqli_fetch_assoc($result1)) {
-          $idhoivien = $r1['idhoivien'];
-          $idgoitap = $r1['idgoitap'];
-
-          $view_hoivien = "SELECT * FROM hoivien WHERE id = $idhoivien ";
-
-          $result2 = mysqli_query($conn, $view_hoivien);
-          $r2 = mysqli_fetch_assoc($result2);
-
-          $view_goitap = "SELECT * FROM goitap WHERE id = $idgoitap";
-
-          $result3 = mysqli_query($conn, $view_goitap);
-          $r3 = mysqli_fetch_assoc($result3);
-
-          if ($r1['trangthai'] == 'Chưa được xác nhận') {
-        ?>
-            <tr>
-              <td><?php echo $r2['hoten'] ?></td>
-              <td><?php echo $r3['tengoitap'] ?></td>
-              <td><?php echo $r1['ngaybatdau'] ?></td>
-              <td><?php echo $r3['gia'] ?></td>
-              <td><?php echo $r1['trangthai'] ?></td>
-              <td><a href="editDangKyStaff.php?sid=<?php echo $r1['id'] ?>" class="btn btn-info">OK</a>
-                <a onclick="return confirm('Bạn có muốn xóa đăng ký này không?')" href="deleteDangKyStaff.php?sid=<?php echo $r1['id'] ?>" class="btn btn-danger">Xóa</a>
-              </td>
-            </tr>
-        <?php
-          }
-        }
+        while ($r = mysqli_fetch_assoc($result)) {
         ?>
 
-      </tbody>
-    </table>
-
-
-  </div>
-
-
-  <div class="container">
-    <h1>Đăng ký đã xác nhận </h1>
-    <table class="table table-striped">
-      <thead class="thead-style">
-        <tr>
-          <th>Họ tên</th>
-          <th>Gói tập</th>
-          <th>Ngày bắt đầu</th>
-          <th>Giá</th>
-          <th>Trạng thái</th>
-          <th>Thao tác</th>
-        </tr>
-      </thead>
-      <tbody>
-
+          <tr>
+            <td><?php echo $r['hoten'] ?></td>
+            <td><?php echo $r['ngaysinh'] ?></td>
+            <td><?php echo $r['sdt'] ?></td>
+            <td><?php echo $r['diachi'] ?></td>
+            <td><?php echo $r['nghenghiep'] ?></td>
+            <td><?php echo $r['mavantay'] ?></td>
+            <td><?php echo $r['loaithanhvien'] ?></td>
+            <td><a href="editHoiVienStaff.php?sid=<?php echo $r['id'] ?>" class="btn btn-info">Sửa</a>
+              <a onclick="return confirm('Bạn có muốn xóa hội viên này không?')" href="deleteHoiVienStaff.php?sid=<?php echo $r['id'] ?>" class="btn btn-danger">Xóa</a>
+            </td>
+          </tr>
         <?php
-
-        //ket noi csdl
-        require_once '../connect.php';
-
-
-        $view_dangky = "SELECT * FROM dangkygoitap";
-
-        $result1 = mysqli_query($conn, $view_dangky);
-
-        while ($r1 = mysqli_fetch_assoc($result1)) {
-          $idhoivien = $r1['idhoivien'];
-          $idgoitap = $r1['idgoitap'];
-
-          $view_hoivien = "SELECT * FROM hoivien WHERE id = $idhoivien ";
-
-          $result2 = mysqli_query($conn, $view_hoivien);
-          $r2 = mysqli_fetch_assoc($result2);
-
-          $view_goitap = "SELECT * FROM goitap WHERE id = $idgoitap";
-
-          $result3 = mysqli_query($conn, $view_goitap);
-          $r3 = mysqli_fetch_assoc($result3);
-
-          if ($r1['trangthai'] == 'Đã xác nhận') {
-        ?>
-            <tr>
-              <td><?php echo $r2['hoten'] ?></td>
-              <td><?php echo $r3['tengoitap'] ?></td>
-              <td><?php echo $r1['ngaybatdau'] ?></td>
-              <td><?php echo $r3['gia'] ?></td>
-              <td><?php echo $r1['trangthai'] ?></td>
-              <td>
-                <a onclick="return confirm('Bạn có muốn xóa đăng ký này không?')" href="deleteDangKyStaff.php?sid=<?php echo $r1['id'] ?>" class="btn btn-danger">Xóa</a>
-              </td>
-            </tr>
-        <?php
-          }
         }
         ?>
 

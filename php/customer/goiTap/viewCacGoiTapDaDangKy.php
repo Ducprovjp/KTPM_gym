@@ -106,6 +106,7 @@ $result1 = mysqli_query($conn, $view_sql);
           <th>Đơn vị</th>
           <th>Giá</th>
           <th>Ngày bắt đầu</th>
+          <th>Ngày kết thúc</th>
           <th>Trạng thái</th>
         </tr>
       </thead>
@@ -126,8 +127,9 @@ $result1 = mysqli_query($conn, $view_sql);
               <td><?php echo $r2['tengoitap'] ?></td>
               <td><?php echo $r2['thoigian'] ?></td>
               <td><?php echo $r2['donvi'] ?></td>
-              <td><?php echo $r2['gia'] ?></td>
+              <td><?php echo $r1['gia'] ?></td>
               <td><?php echo $r1['ngaybatdau'] ?></td>
+              <td><?php echo $r1['ngayketthuc'] ?></td>
               <td><?php echo $r1['trangthai'] ?></td>
             </tr>
         <?php
