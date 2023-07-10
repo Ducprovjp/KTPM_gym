@@ -35,7 +35,7 @@
 
 
 
-    <div class="container">
+    <div class="container-body">
         <h1>Báo cáo </h1>
         <table class="table table-striped">
             <thead class="thead-style">
