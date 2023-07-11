@@ -64,7 +64,7 @@ $row = mysqli_fetch_assoc($result);
       “Strength does not come <br> from physical capacity. <br> It comes from an indomitable will.”
     </div>
     <div class="person">
-      -Mahatma Gandhi
+      -Lionel Messi
     </div>
   </div>
 

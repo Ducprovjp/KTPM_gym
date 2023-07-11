@@ -53,7 +53,7 @@ $result = mysqli_query($conn, $view_sql);
             <a class="nav-link text-warning" href="../goiTap.php?user=<?php echo $sdt ?>">Gói tập</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" href="../phanHoi.php?user=<?php echo $sdt ?>">Phản hồi</a>
+            <a class="nav-link text-warning active-main" href="../phanHoi.php?user=<?php echo $sdt ?>">Phản hồi</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-warning" href="../thongTinCaNhan/viewThongTin.php?user=<?php echo $sdt ?>">Thông tin cá nhân</a>
@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $view_sql);
       “Strength does not come <br> from physical capacity. <br> It comes from an indomitable will.”
     </div>
     <div class="person">
-      -Mahatma Gandhi
+      -Lionel Messi
     </div>
   </div>
 

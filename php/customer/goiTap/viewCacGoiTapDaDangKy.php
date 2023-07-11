@@ -71,7 +71,7 @@ $result1 = mysqli_query($conn, $view_sql);
       “Strength does not come <br> from physical capacity. <br> It comes from an indomitable will.”
     </div>
     <div class="person">
-      -Mahatma Gandhi
+      -Lionel Messi
     </div>
   </div>
 
